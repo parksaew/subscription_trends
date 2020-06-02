@@ -9,17 +9,13 @@ output:
 
 
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
 
-pacman::p_load(tidyverse)
-```
 
  <br>
 
 ### Build a dummy dataset
-```{r}
 
+```r
 set.seed(12)
 
 dummy <- expand.grid(c("Plus","Pro"),
@@ -33,9 +29,6 @@ dummy <- expand.grid(c("Plus","Pro"),
   mutate(lostSeats = runif(nrow(.), min = 0, max = 100)) %>%
   filter(!(year == 2020 & month > 5) &
            productName == "Pro")
-
-
-
 ```
 
 <br>
@@ -52,8 +45,8 @@ We want to see:
 
 <br>
 
-```{r fig.height=6, fig.width=8, fig.align='center'}
 
+```r
 ggplot(aes(x = month,
            y = lostSeats,
            color = as.factor(year)),
@@ -75,11 +68,9 @@ ggplot(aes(x = month,
        x = "Month",
        color = "Year") +
   scale_color_brewer(palette = "Paired")
-
-
-
-
 ```
+
+<img src="dummy_data_plot_files/figure-html/unnamed-chunk-2-1.png" style="display: block; margin: auto;" />
 
 <br>
 <br>
